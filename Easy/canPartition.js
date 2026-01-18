@@ -13,8 +13,38 @@ The array may contain duplicates.
 Multiple solutions can exist, any solution is sufficient to return true.
 */
 
-function canPartition( /*args*/ ) {
-  //your code
+// function canPartition(arr) {
+//   let max = Math.max(...arr);
+//   let sum = 1;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum *= arr[i];
+//   }
+//   let div = sum / max;
+//   if (div === max) return true;
+//   return false;
+// }
+
+function canPartition(arr) {
+  let sum = 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum *= arr[i];
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    let currentElement = arr[i];
+
+    let div = sum / currentElement;
+
+    if (div === currentElement) {
+      return true;
+    }
+  }
+  return false;
 }
 
 exports.solution = canPartition;
+
+// console.log(canPartition([2, 8, 4, 1]));
+// console.log(canPartition([-1, -10, 1, -2, 20]));
+// console.log(canPartition([-1, -20, 5, -1, -2, 2]));

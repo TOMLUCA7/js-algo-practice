@@ -11,8 +11,16 @@ Notes
 If the input tries to divide by 0, return: "Can't divide by 0!"
 */
 
-function calculator( /*args*/ ) {
-  //your code
+function calculator(n1, op, n2) {
+  let result;
+
+  if (op === "+") result = n1 + n2;
+  else if (op === "-") result = n1 - n2;
+  else if (op === "*") result = n1 * n2;
+  else if (op === "/") result = n2 !== 0 ? n1 / n2 : `Can't divide by 0!`;
+  else result = "invalid";
+  return result;
 }
 
 exports.solution = calculator;
+// console.log(calculator(10, "/", 0));
