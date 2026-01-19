@@ -10,8 +10,15 @@ Notes
 A string can contain uppercase and lowercase vowels.
 */
 
-function dashed( /*args*/ ) {
-  //your code
+function dashed(text) {
+  let addDashed = "";
+  for (let i in text) {
+    addDashed += text[i] + "-";
+  }
+
+  return addDashed;
 }
 
-exports.solution = dashed;
+console.log(dashed("Carpe Diem"));
+
+// exports.solution = dashed;
