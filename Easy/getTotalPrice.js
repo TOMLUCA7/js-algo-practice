@@ -40,8 +40,17 @@ Notes
 There might be a floating point precision problem in here...
 */
 
-function getTotalPrice( /*args*/ ) {
-  //your code
+function getTotalPrice(objPrice) {
+  let totalPrice = 0;
+
+  for (let i = 0; i < objPrice.length; i++) {
+    let productPrice = objPrice[i].price;
+    let productQuantity = objPrice[i].quantity;
+
+    totalPrice += productQuantity * productPrice;
+  }
+
+  return Math.round(totalPrice * 10) / 10;
 }
 
 exports.solution = getTotalPrice;
