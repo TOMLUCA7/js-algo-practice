@@ -11,8 +11,15 @@ Notes
 All test cases contain valid numbers.
 */
 
-function mod( /*args*/ ) {
-  //your code
+function mod(n, m) {
+  let restToCheck = n % m;
+  if (restToCheck >= 0 && restToCheck <= m) return restToCheck + 0;
+  return m + restToCheck;
 }
 
 exports.solution = mod;
+
+// console.log(64 % -13);
+// console.log(mod(-13, 64));
+// console.log(mod(50, 25));
+// console.log(mod(-6, 3));
