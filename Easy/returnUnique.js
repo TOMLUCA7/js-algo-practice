@@ -10,8 +10,14 @@ Notes
 Keep the same ordering in the output.
 */
 
-function returnUnique( /*args*/ ) {
-  //your code
+function returnUnique(array) {
+  return (uniqueOnly = array.filter(
+    (item) => array.indexOf(item) === array.lastIndexOf(item),
+  ));
 }
 
 exports.solution = returnUnique;
+
+// console.log(returnUnique([1, 9, 8, 8, 7, 6, 1, 6]));
+// console.log(returnUnique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1]));
+// console.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8]));
