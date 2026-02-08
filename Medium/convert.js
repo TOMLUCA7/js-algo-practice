@@ -12,8 +12,22 @@ Round to the nearest integer.
 If the input is incorrect, return "Error".
 */
 
-function convert( /*args*/ ) {
-  //your code
+function convert(args) {
+  if (typeof args !== "string") {
+    return "Error";
+  }
+
+  if (args.includes("°C")) {
+    const temp = args.replace("°C", "");
+    return Math.round((temp * 9) / 5 + 32) + "°F";
+  }
+
+  if (args.includes("°F")) {
+    const temp = args.replace("°F", "");
+    return Math.round(((temp - 32) * 5) / 9) + "°C";
+  }
+
+  return "Error";
 }
 
 exports.solution = convert;
