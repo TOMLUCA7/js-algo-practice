@@ -44,8 +44,16 @@ In a maze of size m x n, you enter at [0, 0] and exit at [m-1, n-1].
 There can be dead ends in a maze - one exit path is sufficient.
 */
 
-function canExit( /*args*/ ) {
-  //your code
+function canExit(maze) {
+  for (const [i, row] of maze.entries()) {
+    for (const [j, element] of row.entries()) {
+      if (element === 1) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }
 
 exports.solution = canExit;

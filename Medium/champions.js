@@ -35,8 +35,29 @@ champions([
 ➞ "Manchester United"
 */
 
-function champions( /*args*/ ) {
-  //your code
+function champions(footballClubs) {
+  if (footballClubs.length === 0) return null;
+
+  let championClub = footballClubs[0];
+
+  for (let i = 1; i < footballClubs.length; i++) {
+    // חישוב הפרש שערים לקבוצה הנוכחית בלולאה
+    const currentClubGap = footballClubs[i].scored - footballClubs[i].conceded;
+    // חישוב הפרש שערים לקבוצה שכרגע נחשבת לאלופה
+    const championClubGap = championClub.scored - championClub.conceded;
+
+    // התנאי: אם לקבוצה הנוכחית יש יותר ניצחונות
+    // או שיש לה אותו מספר ניצחונות אבל הפרש שערים טוב יותר
+    if (
+      footballClubs[i].wins > championClub.wins ||
+      (footballClubs[i].wins === championClub.wins &&
+        currentClubGap > championClubGap)
+    ) {
+      championClub = footballClubs[i];
+    }
+  }
+
+  return championClub.name;
 }
 
 exports.solution = champions;
