@@ -24,8 +24,18 @@ Notes
 [5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is identical to the first and last.
 */
 
-function countBoomerangs( /*args*/ ) {
-  //your code
+function countBoomerangs(boomerangArry) {
+  let countBoomerangs = 0;
+  for (let i = 0; i < boomerangArry.length - 2; i++) {
+    if (
+      boomerangArry[i + 2] === boomerangArry[i] &&
+      boomerangArry[i] !== boomerangArry[i + 1]
+    ) {
+      countBoomerangs++;
+    }
+  }
+
+  return countBoomerangs;
 }
 
 exports.solution = countBoomerangs;
