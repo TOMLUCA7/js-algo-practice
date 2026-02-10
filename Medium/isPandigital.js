@@ -12,7 +12,7 @@ isPandigital(112233445566778899) ➞ false
 */
 
 function isPandigital(number) {
-  const allDigits = new Set(number.toString());
+  // const allDigits = new Set();
 
   // const cutnum = number.toString().split("");
 
@@ -20,7 +20,11 @@ function isPandigital(number) {
   //   allDigits.add(digit);
   // }
 
-  return allDigits.size === 10;
+  // return allDigits.size === 10;
+
+  // option 2
+
+  return new Set(number.toString()).size === 10;
 }
 
 /*
@@ -38,17 +42,14 @@ isPandigitalInRange(553, 3, 5) ➞ true
 */
 
 function isPandigitalInRange(num, start, end) {
-  const digitsInNum = new Set(num.toString());
+  const range = new Set(num.toString());
 
-  // 2. נרוץ על הטווח שקיבלנו (כולל ה-end, לכן i <= end)
   for (let i = start; i <= end; i++) {
-    // 3. אם הספרה הנוכחית בטווח *לא* קיימת ב-Set שלנו
-    if (!digitsInNum.has(i.toString())) {
-      return false; // חסרה ספרה? נחזיר מיד false
+    if (!range.has(i.toString())) {
+      return false;
     }
   }
 
-  // 4. אם הלולאה סיימה את כל הריצות, סימן שהכל נמצא
   return true;
 }
 
