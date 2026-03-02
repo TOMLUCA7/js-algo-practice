@@ -14,8 +14,31 @@ The strings can contain white spaces or any type of characters.
 Bonus: Try solving this without regex.
 */
 
-function numInStr( /*args*/ ) {
-  //your code
+function numInStr(stringWithNum) {
+  const newArr = [];
+
+  for (let i = 0; i < stringWithNum.length; i++) {
+    let splitStringWithNum = stringWithNum[i].split("");
+
+    for (let j = 0; j < splitStringWithNum.length; j++) {
+      if (!isNaN(splitStringWithNum[j]) && splitStringWithNum[j] !== " ") {
+        newArr.push(stringWithNum[i]);
+        break;
+      }
+    }
+  }
+
+  return newArr;
 }
+
+/*
+
+function numInStr(arr) {
+  return arr.filter(str => 
+    str.split("").some(char => char !== " " && !isNaN(char))
+  );
+}
+
+*/
 
 exports.solution = numInStr;
