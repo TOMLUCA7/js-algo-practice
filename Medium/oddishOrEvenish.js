@@ -11,8 +11,19 @@ oddishOrEvenish(373) ➞ "Oddish"
 oddishOrEvenish(4433) ➞ "Evenish"
 */
 
-function oddishOrEvenish( /*args*/ ) {
-  //your code
+function oddishOrEvenish(number) {
+  let checkNum = Math.abs(number);
+  let sum = 0;
+
+  while (checkNum > 0) {
+    sum += checkNum % 10;
+
+    checkNum = Math.floor(checkNum / 10);
+  }
+
+  if (sum % 2 === 0) return "Evenish";
+
+  return "Oddish";
 }
 
 exports.solution = oddishOrEvenish;
