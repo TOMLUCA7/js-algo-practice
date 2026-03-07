@@ -12,6 +12,14 @@ Output array must be sorted in ascending order
 The only positive integer which is neither prime nor composite is 1. Return an empty array if 1 is the input.
 */
 
+/*
+
+איך מוצאים אותם בקלות? (שיטת החלוקה)
+מתחילים מהמספר הראשוני הכי קטן (2) ובודקים אם הוא נכנס במספר שלנו. אם כן - מחלקים ורושמים אותו. ממשיכים עם התוצאה שקיבלנו שוב ושוב עד שמגיעים ל-1.
+
+
+*/
+
 function primeFactorize(n) {
   const factors = [];
   let divisor = 2; // מתחילים מהמספר הראשוני הכי קטן
